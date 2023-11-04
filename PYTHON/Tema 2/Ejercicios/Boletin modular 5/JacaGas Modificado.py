@@ -24,6 +24,7 @@ menu=''')
     '''
 while opcion!=8:
     historialV=[]
+    tmp=0
     print(menu)
     opcion = int(input("Elige una de las opciones:"))
     if opcion==1:
@@ -34,30 +35,109 @@ while opcion!=8:
             if surtidor1LG==5000:
                 print("El surtidor esta lleno")
             else:
-                rellenar=float 
+                rellenar=float(input("Cuantos litros quieres repostar en el deposito del surtidor:"))
+                while not(0<rellenar<5000):
+                    rellenar=float(input("Cuantos litros quieres repostar en el deposito del surtidor:"))
+                tmp=surtidor1LG+rellenar
+                if tmp>5000:
+                    rellenar=float(input("Cuantos litros quieres repostar en el deposito del surtidor:"))
+                    while not(0<rellenar<5000):
+                        rellenar=float(input("Cuantos litros quieres repostar en el deposito del surtidor:"))
+                    tmp=surtidor1LG+rellenar
+                else:
+                    surtidor1LG+=rellenar
         elif surtidor==2:
             if surtidor2LG==5000:
                 print("El surtidor esta lleno")
             else:
-
+                rellenar=float(input("Cuantos litros quieres repostar en el deposito del surtidor:"))
+                while not(0<rellenar<5000):
+                    rellenar=float(input("Cuantos litros quieres repostar en el deposito del surtidor:")) 
+                tmp=surtidor2LG+rellenar
+                if tmp>5000:
+                    rellenar=float(input("Cuantos litros quieres repostar en el deposito del surtidor:"))
+                    while not(0<rellenar<5000):
+                        rellenar=float(input("Cuantos litros quieres repostar en el deposito del surtidor:"))
+                    tmp=surtidor2LG+rellenar
+                else:
+                    surtidor2LG+=rellenar
         elif surtidor==3:
             if surtidor1LD==5000:
                 print("El surtidor esta lleno")
             else:
-
+                rellenar=float(input("Cuantos litros quieres repostar en el deposito del surtidor:"))
+                while not(0<rellenar<5000):
+                    rellenar=float(input("Cuantos litros quieres repostar en el deposito del surtidor:")) 
+                tmp=surtidor1LD+rellenar
+                if tmp>5000:
+                    rellenar=float(input("Cuantos litros quieres repostar en el deposito del surtidor:"))
+                    while not(0<rellenar<5000):
+                        rellenar=float(input("Cuantos litros quieres repostar en el deposito del surtidor:"))
+                    tmp=surtidor1LD+rellenar
+                else:
+                    surtidor1LD+=rellenar
         elif surtidor==4:
             if surtidor2LD==5000:
                 print("El surtidor esta lleno")
             else:
-                
+                rellenar=float(input("Cuantos litros quieres repostar en el deposito del surtidor:"))
+                while not(0<rellenar<5000):
+                    rellenar=float(input("Cuantos litros quieres repostar en el deposito del surtidor:")) 
+                tmp=surtidor1LG+rellenar
+                if tmp>5000:
+                    rellenar=float(input("Cuantos litros quieres repostar en el deposito del surtidor:"))
+                    while not(0<rellenar<5000):
+                        rellenar=float(input("Cuantos litros quieres repostar en el deposito del surtidor:"))
+                    tmp=surtidor1LG+rellenar
+                else:
+                    surtidor1LG+=rellenar
     elif opcion==2:
-
+        matricula=input("Introduzca su matricula:")
+        while not(len(matricula)==7 and matricula[0:3] and matricula[4:]):
+            matricula=input("Introduzca su matricula:")
+        if matricula not in matriculas:
+            combustible=input("Introduzca el tipo de combustible que utiliza su vehiculo:")
+            while not(combustible=="gasolina" and combustible=="diesel"):
+                combustible=input("Introduzca el tipo de combustible que utiliza su vehiculo:")
+            matriculas.append(matricula)
+            combustibles.append(combustible)
+        else:
+            gastado=float(input("Cuanto dinero quieres echar:"))
+            while gastado<10.00:
+                gastado=float(input("Cuanto dinero quieres echar:"))
+            for i in range(len(matriculas)):
+                if matriculas[i]==matricula:
+                    for j in range(len(combustibles)):
+                        if j==i:
+                            if combustibles[j]=="gasolina":
+                                litrosg=gastado/preciog
+                                if surtidor1LG < surtidor2LG: 
+                                    surtidor1LG=surtidor1LG-litrosg
+                                elif surtidor2LG < surtidor1LG:
+                                    surtidor2LG=surtidor2LG-litrosg
+                            else:
+                                litrosg=gastado/preciod
+                                if surtidor1LD < surtidor2LD: 
+                                    surtidor1LD=surtidor1LD-litrosg
+                                elif surtidor2LD < surtidor1LD:
+                                    surtidor2LD=surtidor2LD-litrosg
+        for i in range(gastado):
+            if gastado/20==0:
+                puntos+=1
+                puntoss.append(puntos)
+        historialV.append(gastado)
     elif opcion==3:
         matricula=input("Introduzca su matricula:")
+        while not(len(matricula)==7 and matricula[0:3] and matricula[4:]):
+            matricula=input("Introduzca su matricula:")
+        while matricula not in matriculas:
+           matricula=input("Introduzca su matricula:")
         for i in range(len(matriculas)):
-            if matricula in len(matriculas):
-                i= len(matriculas)
-                print(f"los puntos que tienes son:"(len(puntoss)==i))
+            if matricula==matriculas[i]:
+                for j in range(len(puntoss)):
+                    if len(matriculas[i])==len(puntoss[j]):
+                        puntos=puntoss[j]
+        print(puntos)
     elif opcion==4:
         print(historialV)
     elif opcion==5:
