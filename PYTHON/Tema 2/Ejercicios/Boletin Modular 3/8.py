@@ -1,4 +1,4 @@
-def DistintasVocales(cad):
+def distintasVocales(cad):
     tmp = []
     cad = cad.lower()
     for n in cad:
@@ -8,4 +8,4 @@ def DistintasVocales(cad):
     return len(tmp)
 
 
-print(DistintasVocales("abaco"))
+print(distintasVocales("abaco"))
