@@ -107,7 +107,7 @@ def remplazarEnFrase(frase, buscar, sustituir):
 
 print(remplazarEnFrase("La vida no es vida ", "vida", "calor"))
 #8.
-def DistintasVocales(cad):
+def distintasVocales(cad):
     tmp = []
     cad = cad.lower()
     for n in cad:
@@ -117,7 +117,7 @@ def DistintasVocales(cad):
     return len(tmp)
 
 
-print(DistintasVocales("abaco"))
+print(distintasVocales("abaco"))
 #9.
 def descadena(cad):
     cad = cad.lower()
