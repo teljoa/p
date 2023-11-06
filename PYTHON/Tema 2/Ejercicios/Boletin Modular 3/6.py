@@ -1,14 +1,12 @@
-palindrome = "anilina"
+def buscar_palabra(palabrab,cadena):
+    palabra = []
+    c=0
+    c2=0
+    while c<(len(cadena)):
+        if palabrab[c2]==cadena[c]:
+            palabra.append(cadena[c])
+            c2+=1
+        c+=1
+    return palabra
 
-def ispalindrome(palindrome):
-    prin= 0
-    vuelta = len(palindrome)-1
-    while palindrome[prin]==palindrome[vuelta]:
-        if prin >= vuelta:
-            return True 
-        prin+= 1
-        vuelta-=1
-    return False
-    
-
-print(ispalindrome(palindrome))
+print(buscar_palabra("hola","shybaoxlna"))
