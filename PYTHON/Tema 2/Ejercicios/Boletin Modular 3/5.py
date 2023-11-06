@@ -1,14 +1,15 @@
 palindrome = "anilina"
 
 def ispalindrome(palindrome):
+    resultado=False
     prin= 0
     vuelta = len(palindrome)-1
     while palindrome[prin]==palindrome[vuelta]:
         if prin >= vuelta:
-            return True 
+            resultado=True 
         prin+= 1
         vuelta-=1
-    return False
+    return resultado
     
 
 print(ispalindrome(palindrome))
